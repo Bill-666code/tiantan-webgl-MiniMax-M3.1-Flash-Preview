@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#0b1c33" />
+    <meta name="description" content="北京天坛祈年殿 WebGL 程序化重建 · Three.js + TypeScript" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1c33'/%3E%3Cpath d='M16 5 L27 15 H23 V27 H9 V15 H5 Z' fill='%231b62b0'/%3E%3Crect x='11' y='15' width='10' height='12' fill='%23a8261f'/%3E%3C/svg%3E" />
+    <title>天坛祈年殿 · 程序化 WebGL 重建</title>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="stage"></canvas>
+
+      <!-- 加载遮罩 -->
+      <div id="loader" class="loader">
+        <div class="loader__inner">
+          <div class="loader__seal">祈</div>
+          <h1 class="loader__title">祈 年 殿</h1>
+          <p class="loader__subtitle">HALL OF PRAYER FOR GOOD HARVESTS · 100% 运行时程序化生成</p>
+          <div class="loader__bar"><i id="loader-fill"></i></div>
+          <p class="loader__status" id="loader-status">正在构建场景…</p>
+        </div>
+      </div>
+
+      <!-- 标题 -->
+      <header class="hud hud--title" id="hud-title">
+        <h2>天坛 · 祈年殿</h2>
+        <p>三重檐 · 攒尖顶 · 蓝琉璃瓦 · 三层汉白玉台基</p>
+      </header>
+
+      <!-- 控制面板 -->
+      <div class="hud hud--panel" id="hud-panel">
+        <button class="hud__toggle" id="panel-toggle" aria-label="收起面板" title="收起面板">☰</button>
+        <div class="panel__body">
+          <h3 class="panel__title">控制台</h3>
+
+          <div class="panel__group">
+            <button class="btn btn--primary" id="btn-explode">
+              <span class="btn__label" id="btn-explode-label">爆炸分解</span>
+              <span class="btn__hint">Space</span>
+            </button>
+            <button class="btn" id="btn-orbit">
+              <span class="btn__label" id="btn-orbit-label">自动环绕：开</span>
+              <span class="btn__hint">R</span>
+            </button>
+            <button class="btn" id="btn-reset">
+              <span class="btn__label">重置视角</span>
+              <span class="btn__hint">0</span>
+            </button>
+          </div>
+
+          <div class="panel__group">
+            <h4 class="panel__sub">显示</h4>
+            <label class="switch"><input type="checkbox" id="chk-ao" checked /><i></i><span>环境遮蔽 (GTAO)</span></label>
+            <label class="switch"><input type="checkbox" id="chk-bloom" checked /><i></i><span>辉光 Bloom</span></label>
+            <label class="switch"><input type="checkbox" id="chk-shadows" checked /><i></i><span>阴影</span></label>
+            <label class="switch"><input type="checkbox" id="chk-wires" /><i></i><span>分层线框</span></label>
+          </div>
+
+          <div class="panel__group">
+            <h4 class="panel__sub">质量</h4>
+            <div class="seg" id="seg-quality">
+              <button data-q="low">低</button>
+              <button data-q="medium">中</button>
+              <button data-q="high" class="is-active">高</button>
+            </div>
+            <p class="panel__stat" id="stat">—</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 底部提示 -->
+      <footer class="hud hud--foot">
+        <span>左键旋转 · 滚轮缩放 · 右键平移</span>
+        <span class="dot">·</span>
+        <span>拖动可中断自动环绕</span>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

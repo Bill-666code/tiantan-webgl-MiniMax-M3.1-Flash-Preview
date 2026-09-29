@@ -1,0 +1,21 @@
+{
+  "name": "tiantan-webgl",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Procedural WebGL reconstruction of the Hall of Prayer for Good Harvests (祈年殿) — all geometry, textures and animation generated at runtime in TypeScript + Three.js.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@types/three": "^0.186.0",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10"
+  }
+}
